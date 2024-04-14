@@ -1,0 +1,146 @@
+
+.cabecalho__menu-hamburguer{
+   width: 24px;
+   height: 24px;
+   background-image: url("../img/Menu.svg"); 
+   background-repeat: no-repeat;
+   background-position: center;
+   display: inline-block;
+}
+.cabecalho {
+    background-color: var(--textos-principais);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /*apenas para liberar outras opções de position*/
+}
+.container {
+    display: flex;
+    align-items: center;
+
+}
+.container__imagem {
+    padding: 1em;
+}
+.lista__menu {
+    display: none;
+    position: absolute;
+    background-color: var(--textos-principais);
+    top: 100%;
+    /*para a lista ficar estatica em baixo 100% do header*/
+}
+
+/*se o container botao tiver check ele vai procurar outro que venha depois com a classe lista menu e vai colocar display block nele*/
+.container__botao:checked~.lista__menu {
+    display: block;
+
+}
+
+.lista__menu__titulo,
+.lista__menu__item {
+    padding: 1em;
+    background-color: var(--textos-principais);
+}
+.lista__menu__titulo{
+    color: var(--textos-destaques);
+    font-weight: 700;
+}
+.lista__menu__item {
+    background: var(--gradiente);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+}
+
+.container__botao,
+.container__titulo,
+.opcoes,
+.container__imagem__texto {
+    display: none;
+}
+.container__botao:checked ~ .container__hover > .cabecalho__menu-hamburguer {
+    background-image: url("../img/menu\ hover.svg");
+}
+.container__botao:checked ~ .container__hover{
+    background: var(--subtitulos);
+}
+
+
+@media screen and (min-width:1024px) {
+    
+    .container__titulo, .container__titulo__negrito {
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+    .container__titulo__negrito{
+        font-weight: 700;
+    }
+    .opcoes {
+        display: flex;
+    }
+    .opcoes__item {
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem 1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--preto);
+
+    }
+    .container__imagem__transparente{
+        display: none;
+    }
+    .cabecalho__menu-hamburguer{
+        display: none;
+    }
+    .opcoes__botao:checked ~ .lista__menu {
+        display: block;
+        width: auto;
+    }
+    .opcoes__botao {
+        display: none;
+    }
+    .opcoes__botao:checked ~ .opcoes__hover > .opcoes__item {
+        background: var(--subtitulos);
+        color: var(--textos-principais);
+    }
+    .lista__menu__item:hover {
+        background: var(--subtitulos);
+    }
+    .lista__menu__item:hover > .lista__menu__link{
+        -webkit-text-fill-color: var(--textos-principais);
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 20px;
+        color: var(--preto);
+    }
+    .cabecalho {
+        padding: 1rem 5rem;
+    }
+    .opcoes {
+        margin-right: auto;
+        font-weight: 500;
+    }
+    .container__imagem__texto {
+        display: block;
+    }
+    .container__titulo {
+        padding-right: 4rem;
+    }
+}
+    
